@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.6, user-scalable=no, minimum-scale=0.6, maximum-scale=1.0"/>
+
+
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css')}}">
+    <script src="{{url_for('static',filename='js/jquery-3.2.1.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/bootstrap.js')}}"></script>
+
+
+
+    <style>
+        .container {
+            margin-left: 0px;
+            margin-right: 0px;
+            width: 100%;
+        }
+        li{ font-size:1.5vw }
+        .sidebar{
+            position: fixed;
+        }
+    </style>
+
+</head>
+
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3" style="padding-left: 0px;height: 100%">
+            <div class="navbar-default sidebar nav-pills col-md-3" role="navigation" style="height : 100% ;">
+                <ul class="nav" id="side-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="nav-divider"></li>
+                    <li><a href="single">Single Gene OS</a></li>
+                    <li><a href="double">Double Gene OS</a></li>
+                </ul>
+            </div>
+        </div>
+
+        {% block page_content %}
+        {% endblock %}
+    </div>
+</div>
+
+
+
+
+</body>
+</html>

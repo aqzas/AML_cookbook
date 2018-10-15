@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+
+    <script>
+
+    </script>
+
+    <div id="AML_single" class="col-md-9" style="height: 100%">
+            <form class="form-horizontal col-md-9" style="padding: 20px" action="double" method="post">
+                {{form.hidden_tag()}}
+                {{form.csrf_token}}
+                <div class="form-group">
+                    <label for="inputGene" class="col-md-3 control-label">Gene 1</label>
+                    <div class="col-md-6">
+                        {{ form.GeneName1(class="form-control",id="inputGene",placeholder="GeneName") }}
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label for="lowpercent" class="col-md-3 control-label">Lower Percentile</label>
+                    <div class="col-md-6">
+                        {{ form.Low1(class="form-control",id="lowpercent",placeholder="for example: 50")}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="highpercent" class="col-md-3 control-label">Higher Percentile</label>
+                    <div class="col-md-6">
+                        {{ form.High1(class="form-control",id="highpercent",placeholder="for example: 50")}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputGene" class="col-md-3 control-label">Gene 2</label>
+                    <div class="col-md-6">
+                        {{ form.GeneName2(class="form-control",id="inputGene",placeholder="GeneName") }}
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label for="lowpercent" class="col-md-3 control-label">Lower Percentile</label>
+                    <div class="col-md-6">
+                        {{ form.Low2(class="form-control",id="lowpercent",placeholder="for example: 50")}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="highpercent" class="col-md-3 control-label">Higher Percentile</label>
+                    <div class="col-md-6">
+                        {{ form.High2(class="form-control",id="highpercent",placeholder="for example: 50")}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputDatabase" class="col-md-3 control-label">DataBase</label>
+                    <div class="col-md-6">
+                        {{ form.DataBase(class="form-control",id="inputDatabase") }}
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-3 col-md-10">
+                        <button type="submit" class="btn btn-default btn-primary">submit</button>
+                    </div>
+                </div>
+
+                    {% if static %}
+                        <div class="form-group">
+                            <label class="col-md-3"></label>
+                            <p class="col-md-6">The mean value:{{static.mean}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3"></label>
+                            <p class="col-md-6">The std value:{{static.std}}</p>
+                        </div>
+                    {% endif %}
+                <div class="form-group">
+                    {% if image %}
+                    <img class="col-md-offset-3" src="/static/{{image}}?{{refresh}}">
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+
+
+{%  endblock %}
